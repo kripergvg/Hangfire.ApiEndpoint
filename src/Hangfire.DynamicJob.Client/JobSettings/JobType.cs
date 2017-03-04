@@ -1,4 +1,4 @@
-﻿namespace Hangfire.Api.Abstractions.JobSettings
+﻿namespace Hangfire.DynamicJob.Client.JobSettings
 {
     public enum JobType
     {

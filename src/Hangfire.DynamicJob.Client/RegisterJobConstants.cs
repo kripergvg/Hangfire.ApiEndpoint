@@ -1,4 +1,4 @@
-﻿namespace Hangfire.Api.Abstractions
+﻿namespace Hangfire.DynamicJob.Client
 {
     public static class RegisterJobConstants
     {

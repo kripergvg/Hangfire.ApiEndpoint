@@ -6,8 +6,8 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>9e306b79-34b3-4f5a-a86c-ab3cb202e520</ProjectGuid>
-    <RootNamespace>Hangfire.DynamicJob.Server</RootNamespace>
+    <ProjectGuid>41ee5db4-f0d2-43ac-896f-e379fbce8502</ProjectGuid>
+    <RootNamespace>DynamicJob.Core</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>

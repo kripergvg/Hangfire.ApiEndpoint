@@ -1,21 +1,18 @@
 ﻿using System;
-using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Hangfire.Api.Abstractions;
-using Hangfire.Api.Abstractions.JobSettings;
-using Hangfire.Api.Client;
+using Hangfire.DynamicJob.Client.JobSettings;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 
-namespace Hangfire.ApiEndpoint
+namespace Hangfire.DynamicJob.Client.AspNet
 {
     public class ApiEndpointMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IApiClient _apiClient;
+        private readonly IDynamicJobClient _apiClient;
 
-        public ApiEndpointMiddleware(RequestDelegate next, IApiClient apiClient)
+        public ApiEndpointMiddleware(RequestDelegate next, IDynamicJobClient apiClient)
         {
             _next = next;
             _apiClient = apiClient;

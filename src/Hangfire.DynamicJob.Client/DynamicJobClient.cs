@@ -1,13 +1,13 @@
-﻿using Hangfire.Api.Abstractions.JobSettings;
-using DynamicJob;
+﻿using DynamicJob.Abstractions;
+using Hangfire.DynamicJob.Client.JobSettings;
 
-namespace Hangfire.Api.Client
+namespace Hangfire.DynamicJob.Client
 {
-    public class ApiClient : IApiClient
+    public class DynamicJobClient : IDynamicJobClient
     {
         public void EnqueueBackgoundJob(BackgoundJobSettings settings)
         {
-            BackgroundJob.Enqueue<IDynamicJob>(j => j.Run(settings.Name));
+            BackgroundJob.Enqueue<IJobWrapper>(j => j.Run(settings.Name));
         }
 
         public void AddOrUpdateRecurringJob(RecurringJobSettings settings)

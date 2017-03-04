@@ -7,7 +7,7 @@
 
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>41ee5db4-f0d2-43ac-896f-e379fbce8502</ProjectGuid>
+    <ProjectGuid>75cf7046-56f1-4691-bed3-a4e0e4b7b239</ProjectGuid>
     <RootNamespace>DynamicJob</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>

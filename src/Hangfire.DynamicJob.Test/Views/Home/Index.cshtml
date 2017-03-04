@@ -1,5 +1,11 @@
-﻿<form action="/api" method="post" enctype="multipart/form-data">
-    <input type="file" name="testfile"/>
-    <input name="testtext"/>
+﻿<form action="/dynamicJobSave" method="post" enctype="multipart/form-data">
+    <input type="file" name="JobArchiveName"/>
+    <input name="JobName"/>
     <input type="submit"/>
+</form>
+
+<form action="/api" method="post">
+    <input name="JobSettings" value='{Name:"test", Queue:"test"}' />
+    <input name="JobType" value="1" />
+    <input type="submit" />
 </form>

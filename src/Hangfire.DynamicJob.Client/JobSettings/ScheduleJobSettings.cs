@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Hangfire.Api.Abstractions.JobSettings
+namespace Hangfire.DynamicJob.Client.JobSettings
 {
     public class ScheduleJobSettings : IJobSettings
     {

@@ -1,9 +1,8 @@
-﻿using System.Threading.Tasks;
-using Hangfire.Api.Abstractions.JobSettings;
+﻿using Hangfire.DynamicJob.Client.JobSettings;
 
-namespace Hangfire.Api.Client
+namespace Hangfire.DynamicJob.Client
 {
-    public interface IApiClient
+    public interface IDynamicJobClient
     {
         void EnqueueBackgoundJob(BackgoundJobSettings settings);
 

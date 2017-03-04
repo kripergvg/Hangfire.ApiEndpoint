@@ -1,13 +1,16 @@
-﻿using DynamicJob;
+﻿using DynamicJob.Abstractions;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace Hangfire.Api.Server
+namespace DynamicJob.Core
 {
     public static class DynamicJobServiceCollectionExtensions
     {
         public static IServiceCollection AddHangfireServerDynamicJobs(this IServiceCollection collection)
         {
-            collection.AddSingleton<IDynamicJob, Job>();
+            collection
+                .AddSingleton<IJobWrapper, JobWrapper>()
+                .AddSingleton<IJobDependencyStorage, JobDependencyStorage>();
+
 
             return collection;
         }

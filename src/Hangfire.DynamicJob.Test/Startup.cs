@@ -1,12 +1,14 @@
 ﻿using System;
+using DynamicJob.Core;
+using Hangfire.DynamicJob.Client.AspNet;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Hangfire.Api.Server;
-using Hangfire.ApiEndpoint;
+using Hangfire.DynamicJob.Client;
+using Hangfire.DynamicJob.Server.AspNet;
 
 namespace Hangfire.Api.Test
 {
@@ -31,6 +33,7 @@ namespace Hangfire.Api.Test
             services.AddMvc();
             services.AddHangfire(c => c.UseSqlServerStorage("Data Source=DESKTOP-QOP3O2O;Initial Catalog=Hangfire;Integrated Security=True"));
             services.AddHangfireServerDynamicJobs();
+            services.AddHangfireClientDynamicJobs();
 
             services.Configure<FormOptions>(f =>
             {
@@ -47,7 +50,8 @@ namespace Hangfire.Api.Test
 
             app.UseHangfireDashboard();
             app.UseHangfireServer();
-            app.UseApiEndpoint();
+            app.UseHangfireClientDynamicJobs();
+            app.UseHangfireServerDynamicJobs();
 
             if (env.IsDevelopment())
             {

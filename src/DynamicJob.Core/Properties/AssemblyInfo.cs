@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Hangfire.DynamicJob.Server")]
+[assembly: AssemblyProduct("DynamicJob")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,4 +16,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("9e306b79-34b3-4f5a-a86c-ab3cb202e520")]
+[assembly: Guid("41ee5db4-f0d2-43ac-896f-e379fbce8502")]

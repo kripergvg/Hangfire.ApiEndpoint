@@ -1,8 +1,8 @@
-{
+﻿{
   "version": "1.0.0-*",
 
   "dependencies": {
-    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+    "Hangfire.Core": "1.6.9",
     "NETStandard.Library": "1.6.0"
   },
 

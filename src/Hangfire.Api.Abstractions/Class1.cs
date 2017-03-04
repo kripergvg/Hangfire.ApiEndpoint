@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Hangfire.ApiEndpoint
+namespace Hangfire.Api.Abstractions
 {
     public class Class1
     {

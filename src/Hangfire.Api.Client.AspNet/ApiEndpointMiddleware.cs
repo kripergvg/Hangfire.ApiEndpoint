@@ -30,13 +30,13 @@ namespace Hangfire.ApiEndpoint
             switch (type)
             {
                 case JobType.Background:
-                    await _apiClient.EnqueueBackgoundJob(JsonConvert.DeserializeObject<BackgoundJobSettings>(settingsString));
+                     _apiClient.EnqueueBackgoundJob(JsonConvert.DeserializeObject<BackgoundJobSettings>(settingsString));
                     break;
                 case JobType.Recurring:
-                    await _apiClient.AddOrUpdateRecurringJob(JsonConvert.DeserializeObject<RecurringJobSettings>(settingsString));
+                     _apiClient.AddOrUpdateRecurringJob(JsonConvert.DeserializeObject<RecurringJobSettings>(settingsString));
                     break;
                 case JobType.Schedule:
-                    await _apiClient.ScheduleJob(JsonConvert.DeserializeObject<ScheduleJobSettings>(settingsString));
+                     _apiClient.ScheduleJob(JsonConvert.DeserializeObject<ScheduleJobSettings>(settingsString));
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

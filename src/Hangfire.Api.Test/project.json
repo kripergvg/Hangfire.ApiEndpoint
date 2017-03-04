@@ -23,7 +23,9 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Hangfire.Api.Client.AspNet": "1.0.0-*",
     "Hangfire.Api.Client": "1.0.0-*",
-    "Hangfire": "1.6.9"
+    "Hangfire": "1.6.9",
+    "Hangfire.Api.Server.AspNet": "1.0.0-*",
+    "Hangfire.Api.Server": "1.0.0-*"
   },
 
   "tools": {

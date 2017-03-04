@@ -7,9 +7,9 @@ namespace Hangfire.Api.Server
 {
     public class ServerApi
     {
-        public Task AcceptJob()
-        {
+        //public Task AcceptJob()
+        //{
             
-        }
+        //}
     }
 }

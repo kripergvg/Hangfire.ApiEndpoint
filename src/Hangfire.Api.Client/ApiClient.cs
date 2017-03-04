@@ -7,7 +7,7 @@ namespace Hangfire.Api.Client
     {
         public void EnqueueBackgoundJob(BackgoundJobSettings settings)
         {
-            BackgroundJob.Enqueue(() => new Job(settings.Name).Run());
+            BackgroundJob.Enqueue<IDynamicJob>(j => j.Run(settings.Name));
         }
 
         public void AddOrUpdateRecurringJob(RecurringJobSettings settings)

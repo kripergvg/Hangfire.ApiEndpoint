@@ -12,10 +12,10 @@ namespace Hangfire.Api.Server.AspNet
             _next = next;
         }
 
-        public Task Invoke(HttpContext context)
-        {
-            var t = new ServerApi();
-            t.AcceptJob();
-        }
+        //public Task Invoke(HttpContext context)
+        //{
+        //    var t = new ServerApi();
+        //    t.AcceptJob();
+        //}
     }
 }

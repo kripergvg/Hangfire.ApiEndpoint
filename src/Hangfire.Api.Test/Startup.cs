@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Hangfire.Api.Server;
 
 namespace Hangfire.Api.Test
 {
@@ -32,6 +33,7 @@ namespace Hangfire.Api.Test
             // Add framework services.
             services.AddMvc();
             services.AddHangfire(c => c.UseSqlServerStorage("Data Source=DESKTOP-QOP3O2O;Initial Catalog=Hangfire;Integrated Security=True"));
+            services.AddHangfireServerDynamicJobs();
 
             services.Configure<FormOptions>(f =>
             {

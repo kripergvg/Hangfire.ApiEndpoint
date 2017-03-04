@@ -7,6 +7,6 @@ namespace Hangfire.ApiEndpoint
 {
     public class EnqueueModel
     {
-        public httpfile Type { get; set; }
+        //public httpfile Type { get; set; }
     }
 }

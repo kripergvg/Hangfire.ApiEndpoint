@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0-*",
+
+  "dependencies": {
+    "NETStandard.Library": "1.6.1",
+    "Microsoft.AspNetCore.Http.Abstractions": "1.1.0",
+    "Newtonsoft.Json": "9.0.1",
+    "Hangfire.DynamicJob.Client": "1.0.0-*"
+  },
+
+  "frameworks": {
+    "netstandard1.6": {
+      "imports": "dnxcore50"
+    }
+  }
+}

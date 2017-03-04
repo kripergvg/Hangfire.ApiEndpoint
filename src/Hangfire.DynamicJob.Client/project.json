@@ -1,9 +1,10 @@
-﻿{
+{
   "version": "1.0.0-*",
 
   "dependencies": {
-    "DynamicJob.Abstractions": "1.0.0-*",
-    "NETStandard.Library": "1.6.1" 
+    "DynamicJob": "1.0.0-*",
+    "Hangfire.Core": "1.6.9",
+    "NETStandard.Library": "1.6.1"
   },
 
   "frameworks": {

@@ -1,13 +1,14 @@
-﻿using Hangfire.DynamicJob.Client.JobSettings;
+﻿using System.Threading.Tasks;
+using Hangfire.DynamicJob.Client.JobSettings;
 
 namespace Hangfire.DynamicJob.Client
 {
     public interface IDynamicJobClient
     {
-        void EnqueueBackgoundJob(BackgoundJobSettings settings, string arguments);
+        Task EnqueueBackgoundJobAsync(BackgoundJobSettings settings, string arguments, byte[] jobArchive);
 
-        void AddOrUpdateRecurringJob(RecurringJobSettings settings, string arguments);
+        Task AddOrUpdateRecurringJobAsync(RecurringJobSettings settings, string arguments, byte[] jobArchive);
 
-        void ScheduleJob(ScheduleJobSettings settings, string arguments);
+        Task ScheduleJobAsync(ScheduleJobSettings settings, string arguments, byte[] jobArchive);
     }
 }

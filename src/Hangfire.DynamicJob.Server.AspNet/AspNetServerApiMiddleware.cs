@@ -1,6 +1,7 @@
 ﻿using System.IO;
 using System.Threading.Tasks;
 using DynamicJob.Core;
+using DynamicJob.Core.ServerJobStorage;
 using Microsoft.AspNetCore.Http;
 
 namespace Hangfire.DynamicJob.Server.AspNet
@@ -8,9 +9,9 @@ namespace Hangfire.DynamicJob.Server.AspNet
     public class AspNetServerApiMiddleware
     {
         private readonly RequestDelegate _next;
-        private readonly IJobDependencyStorage _jobStorage;
+        private readonly IServerJobStorage _jobStorage;
 
-        public AspNetServerApiMiddleware(RequestDelegate next, IJobDependencyStorage jobStorage)
+        public AspNetServerApiMiddleware(RequestDelegate next, IServerJobStorage jobStorage)
         {
             _next = next;
             _jobStorage = jobStorage;

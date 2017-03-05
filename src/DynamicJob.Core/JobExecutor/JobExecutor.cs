@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace DynamicJob.Core
+namespace DynamicJob.Core.JobExecutor
 {
     public class JobExecutor : IJobExecutor
     {

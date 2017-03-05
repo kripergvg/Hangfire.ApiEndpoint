@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DynamicJob.Core
+namespace DynamicJob.Core.JobExecutor
 {
     public interface IJobExecutor
     {

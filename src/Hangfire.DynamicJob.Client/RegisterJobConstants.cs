@@ -7,5 +7,7 @@
         public const string TYPE = "JobType";
 
         public const string ARGUMENTS = "JobArguments";
+
+        public const string JOB_ARCHIVE_NAME = "JobArchiveName";
     }
 }

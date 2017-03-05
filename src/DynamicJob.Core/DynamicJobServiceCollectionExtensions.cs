@@ -1,4 +1,5 @@
 ﻿using DynamicJob.Abstractions;
+using DynamicJob.Core.ServerJobStorage;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace DynamicJob.Core
@@ -9,7 +10,7 @@ namespace DynamicJob.Core
         {
             collection
                 .AddSingleton<IJobWrapper, JobWrapper>()
-                .AddSingleton<IJobDependencyStorage, JobDependencyStorage>()
+                .AddSingleton<IServerJobStorage, ServerJobStorage.ServerJobStorage>()
                 .AddSingleton<IJobExecutor, JobExecutor>();
 
 

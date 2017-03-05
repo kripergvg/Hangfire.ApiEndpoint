@@ -6,26 +6,26 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
 
-namespace DynamicJob.Core
+namespace DynamicJob.Core.ServerJobStorage
 {
-    public class JobDependencyStorage : IJobDependencyStorage
+    public class ServerJobStorage : IServerJobStorage
     {
-        public void Save(byte[] archiveBytes, string jobName)
+        public void Save(byte[] archiveBytes, string jobName, DateTime jobUpdateDate)
         {
             using (var archiveStream = new MemoryStream(archiveBytes))
             {
                 var archive = new ZipArchive(archiveStream);
-                archive.ExtractToDirectory($"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}");
+                archive.ExtractToDirectory(GetJobFolder(jobName, jobUpdateDate));
             }
         }
 
-        public IReadOnlyCollection<Type> GetJobsTypes(string jobName)
+        public IReadOnlyCollection<Type> GetJobsTypes(string jobName, DateTime jobUpdateDate)
         {
             //TODO загружать и определять джобы только при старте и обновление таски
             // сохранять их в памяти
 
             var jobsAssemblies = new List<Type>();
-            var files = Directory.GetFiles($"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}", "*.dll");
+            var files = Directory.GetFiles(GetJobFolder(jobName, jobUpdateDate), "*.dll");
             foreach (var file in files)
             {
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
@@ -39,10 +39,10 @@ namespace DynamicJob.Core
             return jobsAssemblies;
         }
 
-        public IReadOnlyCollection<Type> GetJobsTypes(string jobName, string genericTypeName)
+        public IReadOnlyCollection<Type> GetJobsTypes(string jobName, string genericTypeName, DateTime jobUpdateDate)
         {
             var jobsAssemblies = new List<Type>();
-            var files = Directory.GetFiles($"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}", "*.dll");
+            var files = Directory.GetFiles(GetJobFolder(jobName, jobUpdateDate), "*.dll");
             foreach (var file in files)
             {
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
@@ -53,6 +53,16 @@ namespace DynamicJob.Core
             }
 
             return jobsAssemblies;
+        }
+
+        public bool JobsByDateExists(string jobName, DateTime jobUpdateDate)
+        {
+            return Directory.Exists(GetJobFolder(jobName, jobUpdateDate));
+        }
+
+        private string GetJobFolder(string jobName, DateTime jobUpdateDate)
+        {
+            return $"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}/{jobUpdateDate}";
         }
     }
 }

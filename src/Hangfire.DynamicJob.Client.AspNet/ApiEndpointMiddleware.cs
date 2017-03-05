@@ -3,7 +3,8 @@ using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 using DynamicJob.Core;
-using Hangfire.DynamicJob.Client.JobSettings;
+using Hangfire.DynamicJob.Core;
+using Hangfire.DynamicJob.Core.JobSettings;
 using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json;
 

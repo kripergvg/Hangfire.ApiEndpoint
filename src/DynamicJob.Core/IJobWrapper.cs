@@ -1,4 +1,4 @@
-﻿namespace DynamicJob.Abstractions
+﻿namespace DynamicJob.Core
 {
     public interface IJobWrapper
     {

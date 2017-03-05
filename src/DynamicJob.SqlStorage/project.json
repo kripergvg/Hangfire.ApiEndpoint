@@ -3,7 +3,7 @@
 
   "dependencies": {
     "DynamicJob.Core": "1.0.0-*",
-    "NETStandard.Library": "1.6.0",
+    "NETStandard.Library": "1.6.1",
     "System.Data.SqlClient": "4.3.0"
   },
 

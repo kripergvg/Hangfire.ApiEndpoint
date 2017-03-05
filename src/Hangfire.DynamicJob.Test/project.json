@@ -22,9 +22,9 @@
     "Microsoft.Extensions.Options.ConfigurationExtensions": "1.0.0",
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0",
     "Hangfire": "1.6.9",
+    "Hangfire.DynamicJob.Core": "1.0.0-*",
     "Hangfire.DynamicJob.Client.AspNet": "1.0.0-*",
-    "DynamicJob.Core": "1.0.0-*",
-    "Hangfire.DynamicJob.Server.AspNet": "1.0.0-*"
+    "DynamicJob.SqlStorage": "1.0.0-*"
   },
 
   "tools": {

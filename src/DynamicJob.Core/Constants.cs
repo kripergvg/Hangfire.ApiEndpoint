@@ -2,6 +2,6 @@
 {
     public static class Constants
     {
-        public const string JOBS_FOLDER = "_________DynamicJobsFolder";
+        public const string DEFAULT_JOBS_FOLDER = "_________DynamicJobsFolder";
     }
 }

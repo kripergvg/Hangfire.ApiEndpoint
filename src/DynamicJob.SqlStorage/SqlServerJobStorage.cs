@@ -23,7 +23,7 @@ namespace DynamicJob.SqlStorage
             {
                 var updateOrCreateCommand = new SqlCommand(@"IF EXISTS(SELECT 1 FROM DynamicJob.JobDependencyStorage)
 	                                                        UPDATE DynamicJob.JobDependencyStorage
-	                                                        SET UpdateDate=@UpdateDate
+	                                                        SET UpdateDate=@UpdateDate,
 		                                                        Dependency=@Dependency
 	                                                        WHERE Name=@Name
                                                         ELSE

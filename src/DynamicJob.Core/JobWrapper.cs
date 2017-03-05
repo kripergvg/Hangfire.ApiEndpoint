@@ -1,6 +1,4 @@
 ﻿using System;
-using DynamicJob.Abstractions;
-using DynamicJob.Core.DistributorJobStorage;
 using DynamicJob.Core.JobExecutor;
 using DynamicJob.Core.ServerJobStorage;
 
@@ -9,31 +7,34 @@ namespace DynamicJob.Core
     public class JobWrapper : IJobWrapper
     {
         private readonly IServerJobStorage _serverJobStorage;
-        private readonly IDistributorJobStorage _distributorJobStorage;
         private readonly IJobExecutor _jobExecutor;
+        private readonly DynamicJobConfiguration _configuration;
 
-        public JobWrapper(IServerJobStorage serverJobStorage, IDistributorJobStorage distributorJobStorage, IJobExecutor jobExecutor)
+        public JobWrapper(IServerJobStorage serverJobStorage, IJobExecutor jobExecutor, DynamicJobConfiguration configuration)
         {
             _serverJobStorage = serverJobStorage;
-            _distributorJobStorage = distributorJobStorage;
             _jobExecutor = jobExecutor;
+            _configuration = configuration;
         }
 
         public void Run(string jobName, string arguments)
         {
-            var lastUpdateDate = _distributorJobStorage.GetJobUpdateDate(jobName).Result;
-            if (lastUpdateDate.HasValue)
+            if (_configuration.DistributorJobStorage != null)
             {
-                if (_serverJobStorage.JobsByDateExists(jobName, lastUpdateDate.Value))
+                var lastUpdateDate = _configuration.DistributorJobStorage.GetJobUpdateDate(jobName).Result;
+                if (lastUpdateDate.HasValue)
                 {
-                    RunJobs(jobName, lastUpdateDate.Value);
-                }
-                else
-                {
-                    var job = _distributorJobStorage.GetJobAsync(jobName).Result;
-                    _serverJobStorage.Save(job.Archive, job.Name, job.UpdateDate);
+                    if (_serverJobStorage.JobsByDateExists(jobName, lastUpdateDate.Value))
+                    {
+                        RunJobs(jobName, lastUpdateDate.Value);
+                    }
+                    else
+                    {
+                        var job = _configuration.DistributorJobStorage.GetJobAsync(jobName).Result;
+                        _serverJobStorage.Save(job.Archive, job.Name, job.UpdateDate);
 
-                    RunJobs(jobName, job.UpdateDate);
+                        RunJobs(jobName, job.UpdateDate);
+                    }
                 }
             }
         }

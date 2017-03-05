@@ -5,11 +5,21 @@ using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Loader;
+using System.Text;
 
 namespace DynamicJob.Core.ServerJobStorage
 {
     public class ServerJobStorage : IServerJobStorage
     {
+        private readonly DynamicJobConfiguration _configuration;
+
+        public ServerJobStorage(DynamicJobConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        private static readonly char[] IllegalFolderNameCharcters = { '~', '#', '%', '&', '*', '{', '}', '\\', ':', '<', '>', '?', '/', '+', '|', '\"' };
+
         public void Save(byte[] archiveBytes, string jobName, DateTime jobUpdateDate)
         {
             using (var archiveStream = new MemoryStream(archiveBytes))
@@ -62,7 +72,18 @@ namespace DynamicJob.Core.ServerJobStorage
 
         private string GetJobFolder(string jobName, DateTime jobUpdateDate)
         {
-            return $"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}/{jobUpdateDate}";
+            return $"{_configuration.JobsStoragePath}/{FilterFolderName(jobName)}/{FilterFolderName(jobUpdateDate.ToString())}";
+        }
+
+        private string FilterFolderName(string name)
+        {
+            var nameSB = new StringBuilder(name);
+            foreach (var illegalCharacter in IllegalFolderNameCharcters)
+            {
+                nameSB.Replace(illegalCharacter, '_');
+            }
+
+            return nameSB.ToString();
         }
     }
 }

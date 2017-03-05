@@ -1,7 +1,7 @@
 ﻿using System.Threading.Tasks;
-using Hangfire.DynamicJob.Client.JobSettings;
+using Hangfire.DynamicJob.Core.JobSettings;
 
-namespace Hangfire.DynamicJob.Client
+namespace Hangfire.DynamicJob.Core
 {
     public interface IDynamicJobClient
     {

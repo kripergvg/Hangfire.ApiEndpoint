@@ -10,12 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Server.AspNet", "src\Hangfire.DynamicJob.Server.AspNet\Hangfire.DynamicJob.Server.AspNet.xproj", "{096062C0-BCFE-4639-A243-F1F9CCACA5C4}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Server.Standalone", "src\Hangfire.DynamicJob.Server.Standalone\Hangfire.DynamicJob.Server.Standalone.xproj", "{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10}"
-EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Client", "src\Hangfire.DynamicJob.Client\Hangfire.DynamicJob.Client.xproj", "{6028A528-EB4D-45E1-AFA6-8877B892A86F}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Client.AspNet", "src\Hangfire.DynamicJob.Client.AspNet\Hangfire.DynamicJob.Client.AspNet.xproj", "{9E118A5B-759A-402E-9293-77C26F4978B4}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Client.Standalone", "src\Hangfire.DynamicJob.Client.Standalone\Hangfire.DynamicJob.Client.Standalone.xproj", "{70181E5E-C6A5-4D58-BC0E-B877D790B799}"
@@ -24,11 +18,11 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Test", 
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicJob.Core", "src\DynamicJob.Core\DynamicJob.Core.xproj", "{41EE5DB4-F0D2-43AC-896F-E379FBCE8502}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicJob.Abstractions", "src\DynamicJob.Abstractions\DynamicJob.Abstractions.xproj", "{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D}"
-EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicJob", "src\DynamicJob\DynamicJob.xproj", "{75CF7046-56F1-4691-BED3-A4E0E4B7B239}"
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DynamicJob.SqlStorage", "src\DynamicJob.SqlStorage\DynamicJob.SqlStorage.xproj", "{F2F737A2-F1D3-4E73-A048-09E688550EEA}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.DynamicJob.Core", "src\Hangfire.DynamicJob.Core\Hangfire.DynamicJob.Core.xproj", "{C12728F7-2BBE-4FE8-99D2-9EF1D7900510}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,18 +30,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{096062C0-BCFE-4639-A243-F1F9CCACA5C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{096062C0-BCFE-4639-A243-F1F9CCACA5C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{096062C0-BCFE-4639-A243-F1F9CCACA5C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{096062C0-BCFE-4639-A243-F1F9CCACA5C4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6028A528-EB4D-45E1-AFA6-8877B892A86F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6028A528-EB4D-45E1-AFA6-8877B892A86F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6028A528-EB4D-45E1-AFA6-8877B892A86F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6028A528-EB4D-45E1-AFA6-8877B892A86F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9E118A5B-759A-402E-9293-77C26F4978B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9E118A5B-759A-402E-9293-77C26F4978B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9E118A5B-759A-402E-9293-77C26F4978B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -64,10 +46,6 @@ Global
 		{41EE5DB4-F0D2-43AC-896F-E379FBCE8502}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41EE5DB4-F0D2-43AC-896F-E379FBCE8502}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{41EE5DB4-F0D2-43AC-896F-E379FBCE8502}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75CF7046-56F1-4691-BED3-A4E0E4B7B239}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75CF7046-56F1-4691-BED3-A4E0E4B7B239}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75CF7046-56F1-4691-BED3-A4E0E4B7B239}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -76,20 +54,21 @@ Global
 		{F2F737A2-F1D3-4E73-A048-09E688550EEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F737A2-F1D3-4E73-A048-09E688550EEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F737A2-F1D3-4E73-A048-09E688550EEA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C12728F7-2BBE-4FE8-99D2-9EF1D7900510}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C12728F7-2BBE-4FE8-99D2-9EF1D7900510}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C12728F7-2BBE-4FE8-99D2-9EF1D7900510}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C12728F7-2BBE-4FE8-99D2-9EF1D7900510}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{096062C0-BCFE-4639-A243-F1F9CCACA5C4} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
-		{A320CCA5-0FCB-43B4-B455-1CE47A6EAE10} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
-		{6028A528-EB4D-45E1-AFA6-8877B892A86F} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{9E118A5B-759A-402E-9293-77C26F4978B4} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{70181E5E-C6A5-4D58-BC0E-B877D790B799} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{7D7FF6ED-EE13-4469-8043-7F450EE1ACC3} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{41EE5DB4-F0D2-43AC-896F-E379FBCE8502} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
-		{4BDC7FF9-87C2-4D2C-B869-5B83ACA6123D} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{75CF7046-56F1-4691-BED3-A4E0E4B7B239} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 		{F2F737A2-F1D3-4E73-A048-09E688550EEA} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
+		{C12728F7-2BBE-4FE8-99D2-9EF1D7900510} = {766F2E1E-4C69-4056-B1A5-50208C87CE8F}
 	EndGlobalSection
 EndGlobal

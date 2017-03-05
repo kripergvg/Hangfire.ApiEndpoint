@@ -1,4 +1,4 @@
-﻿namespace Hangfire.DynamicJob.Client.JobSettings
+﻿namespace Hangfire.DynamicJob.Core.JobSettings
 {
     interface IJobSettings
     {

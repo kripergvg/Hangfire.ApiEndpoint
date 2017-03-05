@@ -8,5 +8,7 @@ namespace DynamicJob.Core
         void Save(byte[] archiveBytes, string jobName);
 
         IReadOnlyCollection<Type> GetJobsTypes(string jobName);
+
+        IReadOnlyCollection<Type> GetJobsTypes(string jobName, string genericTypeName);
     }
 }

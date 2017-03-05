@@ -15,9 +15,11 @@ namespace DynamicJob.Core
 
         public void Run(string jobName, string arguments)
         {
+            //TODO разделить на джобы с параметрами и без
+            // проверять, что тип Gneric подходит под текущий тип аргумента
             foreach (var jobType in _jobStorage.GetJobsTypes(jobName))
             {
-                _jobExecutor.Execute(jobType, arguments);
+                _jobExecutor.Execute(jobType);
             }
         }
     }

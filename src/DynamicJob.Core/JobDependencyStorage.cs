@@ -31,6 +31,23 @@ namespace DynamicJob.Core
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
                 var jobsTypesFromAssembly = assembly
                     .GetTypes()
+                    .Where(t => typeof(IJob).GetTypeInfo().IsAssignableFrom(t)
+                                && t != typeof(IJob));
+                jobsAssemblies.AddRange(jobsTypesFromAssembly);
+            }
+
+            return jobsAssemblies;
+        }
+
+        public IReadOnlyCollection<Type> GetJobsTypes(string jobName, string genericTypeName)
+        {
+            var jobsAssemblies = new List<Type>();
+            var files = Directory.GetFiles($"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}", "*.dll");
+            foreach (var file in files)
+            {
+                var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
+                var jobsTypesFromAssembly = assembly
+                    .GetTypes()
                     .Where(t => typeof(IJob<>).GetTypeInfo().IsAssignableFrom(t));
                 jobsAssemblies.AddRange(jobsTypesFromAssembly);
             }

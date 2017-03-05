@@ -9,18 +9,6 @@ namespace DynamicJob.Core
     {
         public void Execute(Type jobType, string arguments)
         {
-            if (typeof(IJob<>).GetTypeInfo().IsAssignableFrom(jobType))
-            {
-                ExecuteJob(jobType, arguments);
-            }
-            else if (typeof(IJob).GetTypeInfo().IsAssignableFrom(jobType))
-            {
-                ExecuteJob(jobType);
-            }
-        }
-
-        private void ExecuteJob(Type jobType, string arguments)
-        {
             var argumentType = jobType.GenericTypeArguments.First();
             var argument = JsonConvert.DeserializeObject(arguments, argumentType);
 
@@ -29,7 +17,7 @@ namespace DynamicJob.Core
             jobMethod.Invoke(job, new[] { argument });
         }
 
-        private void ExecuteJob(Type jobType)
+        public void Execute(Type jobType)
         {
             var job = (IJob)Activator.CreateInstance(jobType);
             job.Run();

@@ -9,7 +9,8 @@ namespace DynamicJob.Core
         {
             collection
                 .AddSingleton<IJobWrapper, JobWrapper>()
-                .AddSingleton<IJobDependencyStorage, JobDependencyStorage>();
+                .AddSingleton<IJobDependencyStorage, JobDependencyStorage>()
+                .AddSingleton<IJobExecutor, JobExecutor>();
 
 
             return collection;

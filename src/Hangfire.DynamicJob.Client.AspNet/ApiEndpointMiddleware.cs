@@ -29,13 +29,13 @@ namespace Hangfire.DynamicJob.Client.AspNet
             switch (type)
             {
                 case JobType.Background:
-                     _apiClient.EnqueueBackgoundJob(JsonConvert.DeserializeObject<BackgoundJobSettings>(settingsString));
+                    _apiClient.EnqueueBackgoundJob(JsonConvert.DeserializeObject<BackgoundJobSettings>(settingsString), arguments);
                     break;
                 case JobType.Recurring:
-                     _apiClient.AddOrUpdateRecurringJob(JsonConvert.DeserializeObject<RecurringJobSettings>(settingsString));
+                    _apiClient.AddOrUpdateRecurringJob(JsonConvert.DeserializeObject<RecurringJobSettings>(settingsString), arguments);
                     break;
                 case JobType.Schedule:
-                     _apiClient.ScheduleJob(JsonConvert.DeserializeObject<ScheduleJobSettings>(settingsString));
+                    _apiClient.ScheduleJob(JsonConvert.DeserializeObject<ScheduleJobSettings>(settingsString), arguments);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

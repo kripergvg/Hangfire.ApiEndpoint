@@ -2,6 +2,6 @@
 {
     public interface IJobWrapper
     {
-        void Run(string name);
+        void Run(string name, string arguments);
     }
 }

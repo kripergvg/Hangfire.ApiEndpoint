@@ -5,17 +5,19 @@ namespace DynamicJob.Core
     public class JobWrapper : IJobWrapper
     {
         private readonly IJobDependencyStorage _jobStorage;
+        private readonly IJobExecutor _jobExecutor;
 
-        public JobWrapper(IJobDependencyStorage jobStorage)
+        public JobWrapper(IJobDependencyStorage jobStorage, IJobExecutor jobExecutor)
         {
             _jobStorage = jobStorage;
+            _jobExecutor = jobExecutor;
         }
 
-        public void Run(string jobName)
+        public void Run(string jobName, string arguments)
         {
-            foreach (var job in _jobStorage.GetJobs(jobName))
+            foreach (var jobType in _jobStorage.GetJobsTypes(jobName))
             {
-                job.Run();
+                _jobExecutor.Execute(jobType, arguments);
             }
         }
     }

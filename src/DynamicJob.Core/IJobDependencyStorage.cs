@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace DynamicJob.Core
 {
@@ -6,6 +7,6 @@ namespace DynamicJob.Core
     {
         void Save(byte[] archiveBytes, string jobName);
 
-        IReadOnlyCollection<IJob> GetJobs(string jobName);
+        IReadOnlyCollection<Type> GetJobsTypes(string jobName);
     }
 }

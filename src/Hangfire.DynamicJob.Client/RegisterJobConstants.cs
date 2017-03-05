@@ -5,5 +5,7 @@
         public const string SETTINGS = "JobSettings";
 
         public const string TYPE = "JobType";
+
+        public const string ARGUMENTS = "JobArguments";
     }
 }

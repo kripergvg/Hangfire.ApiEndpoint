@@ -19,25 +19,23 @@ namespace DynamicJob.Core
             }
         }
 
-        public IReadOnlyCollection<IJob> GetJobs(string jobName)
+        public IReadOnlyCollection<Type> GetJobsTypes(string jobName)
         {
             //TODO загружать и определять джобы только при старте и обновление таски
             // сохранять их в памяти
 
-            var jobs = new List<IJob>();
+            var jobsAssemblies = new List<Type>();
             var files = Directory.GetFiles($"{AppContext.BaseDirectory}/{Constants.JOBS_FOLDER}/{jobName}", "*.dll");
             foreach (var file in files)
             {
                 var assembly = AssemblyLoadContext.Default.LoadFromAssemblyPath(file);
-                var jobsFromAssembly = assembly
+                var jobsTypesFromAssembly = assembly
                     .GetTypes()
-                    .Where(t => typeof(IJob).GetTypeInfo().IsAssignableFrom(t))
-                    //TODO тут придумать логику активации
-                    .Select(j => (IJob)Activator.CreateInstance(j));
-                jobs.AddRange(jobsFromAssembly);
+                    .Where(t => typeof(IJob<>).GetTypeInfo().IsAssignableFrom(t));
+                jobsAssemblies.AddRange(jobsTypesFromAssembly);
             }
 
-            return jobs;
+            return jobsAssemblies;
         }
     }
 }

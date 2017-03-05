@@ -24,6 +24,8 @@ namespace Hangfire.DynamicJob.Client.AspNet
             var type = (JobType)Int32.Parse(context.Request.Form[RegisterJobConstants.TYPE].First());
             var settingsString = context.Request.Form[RegisterJobConstants.SETTINGS].First();
 
+            var arguments = context.Request.Form[RegisterJobConstants.ARGUMENTS].FirstOrDefault();
+
             switch (type)
             {
                 case JobType.Background:
